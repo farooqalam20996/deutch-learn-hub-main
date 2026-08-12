@@ -61,7 +61,7 @@ function DashboardPage() {
             <h1 className="font-serif text-4xl">{en ? "Welcome back" : "Willkommen zurück"}</h1>
             <p className="mt-1 text-muted-foreground">{email}</p>
           </div>
-          <Button variant="outline" onClick={signOut}>{t("logout")}</Button>
+          <Button variant="outline" onClick={signOut}>{t("nav.logout")}</Button>
         </div>
 
         <h2 className="mt-12 font-serif text-2xl">{en ? "Continue learning" : "Weiterlernen"}</h2>

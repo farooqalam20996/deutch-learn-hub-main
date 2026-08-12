@@ -35,11 +35,11 @@ export function SiteHeader() {
   }, []);
 
   const navLinks = [
-    { to: "/", label: t("home") },
-    { to: "/courses", label: t("courses") },
-    { to: "/about", label: t("about") },
-    { to: "/news", label: t("news") },
-    { to: "/contact", label: t("contact") },
+    { to: "/", label: t("nav.home") },
+    { to: "/courses", label: t("nav.courses") },
+    { to: "/about", label: t("nav.about") },
+    { to: "/news", label: t("nav.news") },
+    { to: "/contact", label: t("nav.contact") },
   ] as const;
 
   const switchLang = (lng: "de" | "en") => {
@@ -92,16 +92,16 @@ export function SiteHeader() {
                 </Button>
               )}
               <Button asChild size="sm">
-                <Link to="/dashboard">{t("dashboard")}</Link>
+                <Link to="/dashboard">{t("nav.dashboard")}</Link>
               </Button>
             </>
           ) : (
             <>
               <Button asChild variant="ghost" size="sm">
-                <Link to="/auth">{t("login")}</Link>
+                <Link to="/auth">{t("nav.login")}</Link>
               </Button>
               <Button asChild size="sm">
-                <Link to="/auth">{t("signup")}</Link>
+                <Link to="/auth">{t("nav.signup")}</Link>
               </Button>
             </>
           )}
@@ -136,15 +136,15 @@ export function SiteHeader() {
             </div>
             {signedIn ? (
               <Button asChild size="sm" className="mt-2">
-                <Link to="/dashboard" onClick={() => setOpen(false)}>{t("dashboard")}</Link>
+                <Link to="/dashboard" onClick={() => setOpen(false)}>{t("nav.dashboard")}</Link>
               </Button>
             ) : (
               <div className="mt-2 flex gap-2">
                 <Button asChild variant="outline" size="sm" className="flex-1">
-                  <Link to="/auth" onClick={() => setOpen(false)}>{t("login")}</Link>
+                  <Link to="/auth" onClick={() => setOpen(false)}>{t("nav.login")}</Link>
                 </Button>
                 <Button asChild size="sm" className="flex-1">
-                  <Link to="/auth" onClick={() => setOpen(false)}>{t("signup")}</Link>
+                  <Link to="/auth" onClick={() => setOpen(false)}>{t("nav.signup")}</Link>
                 </Button>
               </div>
             )}
