@@ -23,10 +23,10 @@ export function SiteFooter() {
         <div>
           <h4 className="mb-3 font-serif text-lg">{t("footer.explore")}</h4>
           <ul className="space-y-2 text-sm">
-            <li><Link to="/courses" className="text-muted-foreground hover:text-primary">{t("nav.courses")}</Link></li>
-            <li><Link to="/about" className="text-muted-foreground hover:text-primary">{t("nav.about")}</Link></li>
-            <li><Link to="/news" className="text-muted-foreground hover:text-primary">{t("nav.news")}</Link></li>
-            <li><Link to="/contact" className="text-muted-foreground hover:text-primary">{t("nav.contact")}</Link></li>
+            <li><Link to="/courses" className="text-muted-foreground hover:text-primary">{t("courses")}</Link></li>
+            <li><Link to="/about" className="text-muted-foreground hover:text-primary">{t("about")}</Link></li>
+            <li><Link to="/news" className="text-muted-foreground hover:text-primary">{t("news")}</Link></li>
+            <li><Link to="/contact" className="text-muted-foreground hover:text-primary">{t("contact")}</Link></li>
           </ul>
         </div>
 
