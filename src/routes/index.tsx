@@ -51,6 +51,11 @@ function Home() {
   const { t, i18n } = useTranslation();
   const { data: courses } = useSuspenseQuery(coursesQuery);
 
+
+  console.log(" <><><>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<><><>< LANGUAGE:", i18n.language);
+  console.log(" <><><>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<><><>< RESOLVED:", i18n.resolvedLanguage);
+  console.log(" <><><>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<><><>< TITLE:", t("home.title"));
+
   return (
     <>
       <SiteHeader />
