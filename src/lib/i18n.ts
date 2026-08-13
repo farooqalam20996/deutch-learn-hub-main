@@ -179,47 +179,50 @@ const resources = {
   },
 };
 
-if (!i18n.isInitialized) {
-  const isBrowser = typeof window !== "undefined";
-  const chain = isBrowser ? i18n.use(LanguageDetector).use(initReactI18next) : i18n.use(initReactI18next);
-  chain.init({
-    resources,
-    fallbackLng: "de",
-    // lng: isBrowser ? undefined : "de",
-    supportedLngs: ["de", "en"],
-    interpolation: { escapeValue: false },
-    react: { useSuspense: false },
-    detection: {
-      order: ["localStorage", "navigator"],
-      caches: ["localStorage"],
-    },
-  });
-}
-
-export default i18n;
-
-
-// New code ----->>>>> 13th of August
-// i18n
-//   .use(LanguageDetector)
-//   .use(initReactI18next)
-//   .init({
+// if (!i18n.isInitialized) {
+//   const isBrowser = typeof window !== "undefined";
+//   const chain = isBrowser ? i18n.use(LanguageDetector).use(initReactI18next) : i18n.use(initReactI18next);
+//   chain.init({
 //     resources,
 //     fallbackLng: "de",
+//     // lng: isBrowser ? undefined : "de",
 //     supportedLngs: ["de", "en"],
-
-//     interpolation: {
-//       escapeValue: false,
-//     },
-
-//     react: {
-//       useSuspense: false,
-//     },
-
+//     interpolation: { escapeValue: false },
+//     react: { useSuspense: false },
 //     detection: {
 //       order: ["localStorage", "navigator"],
 //       caches: ["localStorage"],
 //     },
 //   });
+// }
 
 // export default i18n;
+
+
+// New code ----->>>>> 13th of August
+i18n.use(initReactI18next);
+
+if (typeof window !== "undefined") {
+  i18n.use(LanguageDetector);
+}
+
+i18n.init({
+  resources,
+  fallbackLng: "de",
+  supportedLngs: ["de", "en"],
+
+  interpolation: {
+    escapeValue: false,
+  },
+
+  react: {
+    useSuspense: false,
+  },
+
+  detection: {
+    order: ["localStorage", "navigator"],
+    caches: ["localStorage"],
+  },
+});
+
+export default i18n;

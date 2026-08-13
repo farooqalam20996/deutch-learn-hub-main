@@ -42,9 +42,14 @@ export function SiteHeader() {
     { to: "/contact", label: t("nav.contact") },
   ] as const;
 
-  const switchLang = (lng: "de" | "en") => {
-    i18n.changeLanguage(lng);
-  };
+  // const switchLang = (lng: "de" | "en") => {
+  //   i18n.changeLanguage(lng);
+  // };
+
+  const switchLang = async (lng: "de" | "en") => {
+  await i18n.changeLanguage(lng);
+  localStorage.setItem("i18nextLng", lng);
+};
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/85 backdrop-blur-md">
