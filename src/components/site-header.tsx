@@ -10,9 +10,11 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import i18n from "@/lib/i18n";
 
 export function SiteHeader() {
-  const { t, i18n } = useTranslation();
+  // const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [signedIn, setSignedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
@@ -47,9 +49,9 @@ export function SiteHeader() {
   // };
 
   const switchLang = async (lng: "de" | "en") => {
-  await i18n.changeLanguage(lng);
-  localStorage.setItem("i18nextLng", lng);
-};
+    await i18n.changeLanguage(lng);
+    localStorage.setItem("i18nextLng", lng);
+  };
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/85 backdrop-blur-md">
@@ -80,7 +82,7 @@ export function SiteHeader() {
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="sm" className="gap-1.5">
                 <Globe className="h-4 w-4" />
-                <span className="uppercase">{i18n.language?.slice(0, 2)}</span>
+                <span className="uppercase"> {i18n.resolvedLanguage?.slice(0, 2)}</span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">

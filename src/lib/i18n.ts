@@ -1,4 +1,4 @@
-import i18n from "i18next";
+import { createInstance } from "i18next";
 import { initReactI18next } from "react-i18next";
 
 const resources = {
@@ -199,6 +199,8 @@ const resources = {
 
 
 // New code ----->>>>> 13th of August
+const i18n = createInstance();
+
 i18n.use(initReactI18next);
 
 const initialLanguage =
