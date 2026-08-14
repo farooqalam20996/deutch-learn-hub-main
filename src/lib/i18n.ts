@@ -1,6 +1,5 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import LanguageDetector from "i18next-browser-languagedetector";
 
 const resources = {
   de: {
@@ -202,13 +201,15 @@ const resources = {
 // New code ----->>>>> 13th of August
 i18n.use(initReactI18next);
 
-if (typeof window !== "undefined") {
-  i18n.use(LanguageDetector);
-}
+const initialLanguage =
+  typeof window !== "undefined"
+    ? localStorage.getItem("i18nextLng") || "en"
+    : "en";
 
 i18n.init({
   resources,
-  fallbackLng: "de",
+  lng: initialLanguage,
+  fallbackLng: "en",
   supportedLngs: ["de", "en"],
 
   interpolation: {
@@ -217,11 +218,6 @@ i18n.init({
 
   react: {
     useSuspense: false,
-  },
-
-  detection: {
-    order: ["localStorage", "navigator"],
-    caches: ["localStorage"],
   },
 });
 
